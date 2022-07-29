@@ -8,12 +8,12 @@ from recipe import Recipe
 class Book:
     """Represents a book containing Recipes."""
     def __init__(self, name: str):
-        self._set_name(name)
+        self.__set_name(name)
         self.creation_date = datetime.now()
         self.last_update = self.creation_date
         self.recipes_list = {"starter": [], "lunch": [], "dessert": []}
 
-    def _set_name(self, name):
+    def __set_name(self, name):
         if isinstance(name, str):
             self.name = name
         else:
