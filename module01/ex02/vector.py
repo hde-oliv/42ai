@@ -39,6 +39,8 @@ class Vector:
             return Vector([[l[0] for l in self.values]])
 
     def dot(self, vector):
+        if not isinstance(vector, Vector):
+            raise TypeError("Wrong argument type.")
         if not self.shape == vector.shape:
             raise ValueError("Wrong vector shape.")
         else:
@@ -48,6 +50,8 @@ class Vector:
                 return sum([i[0] * j[0] for i, j in zip(self.values, vector.values)])
 
     def __add__(self, vector):
+        if not isinstance(vector, Vector):
+            raise TypeError("Wrong argument type.")
         if not self.shape == vector.shape:
             raise ValueError("Wrong vector shape.")
         else:
@@ -60,6 +64,8 @@ class Vector:
         return self + vector
 
     def __sub__(self, vector):
+        if not isinstance(vector, Vector):
+            raise TypeError("Wrong argument type.")
         if not self.shape == vector.shape:
             raise ValueError("Wrong vector shape.")
         else:
@@ -72,6 +78,8 @@ class Vector:
         return self - vector
 
     def __truediv__(self, scalar: int):
+        if not isinstance(scalar, int):
+            raise TypeError("Wrong argument type.")
         if self.__type == "row":
             return Vector([[i / scalar] for i in self.values[0]])
         else:
@@ -81,6 +89,8 @@ class Vector:
         raise NotImplementedError("Division of a scalar by a Vector is not defined here.")
 
     def __mul__(self, scalar: int):
+        if not isinstance(scalar, int):
+            raise TypeError("Wrong argument type.")
         if self.__type == "row":
             return Vector([[i * scalar] for i in self.values[0]])
         else:
