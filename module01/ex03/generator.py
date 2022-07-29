@@ -1,4 +1,3 @@
-
 def generator(text, sep=" ", option=None):
     """\
     Splits the text according to sep value and yield the substrings.\
